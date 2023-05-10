@@ -1,3 +1,3 @@
 import app from './app';
 
-app.listen(3333, () => console.log('Rodando em http://localhost:3333/'));
+app.listen(process.env.PORT, () => console.log(`Rodando em http://localhost:${process.env.PORT}`));
