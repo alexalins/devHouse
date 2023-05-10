@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import router from './routes';
+import path from 'path'
 require('dotenv/config');
-
 
 class App {
     constructor() {
@@ -17,6 +17,11 @@ class App {
     }
 
     middlewares() {
+        this.server.use(
+            '/files',
+            express.static(path.resolve(__dirname, '..', 'uploads'))
+        );
+
         this.server.use(express.json());
     }
 
