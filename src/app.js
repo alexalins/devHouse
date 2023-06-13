@@ -1,5 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
+
 import router from './routes';
 import path from 'path'
 require('dotenv/config');
@@ -17,6 +19,7 @@ class App {
     }
 
     middlewares() {
+        this.server.use(cors);
         this.server.use(
             '/files',
             express.static(path.resolve(__dirname, '..', 'uploads'))
