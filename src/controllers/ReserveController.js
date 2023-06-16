@@ -11,12 +11,10 @@ class ReserveController {
         let house;
         try {
             house = await House.findById(house_id);
-            console.log(house)
         } catch(err) {
             console.log(err);
             return res.status(400).json({error: 'Essa casa não existe.'});
         }
-        console.log(house.status)
         if(house.status !== true){
             return res.status(400).json({error: 'Solicitação indisponível.'});
         }
